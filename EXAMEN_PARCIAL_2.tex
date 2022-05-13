@@ -1,0 +1,153 @@
+\documentclass[10pt,a5paper]{article}
+\input{preamble.tex}
+\begin{document}
+
+\titulo
+
+\begin{enumerate}
+
+		% === 1 === (((
+	\item \textit{Suponga que \(\gamma\) es una curva de Jordan, que \(f\) es analític dentro dé, y sobre \(\gamma \), y que \(f=0\) sobre \(\gamma\). Deduzca que \(f = 0\) dentro de \(\gamma\).} \\[2mm]
+		\textbf{Solución.} Sea \(z\) en el interior de la curva. Si \(\gamma\) es una curva de Jordan, entonces \(I(\gamma ,z_0) =1\). Entonces, por la Fórmula Integral de Cauchy
+		\[
+			f(z) = \dfrac{1}{2 \pi i} \oint_ \gamma  \dfrac{f \big| _{Im \gamma} (x) dx}{x-z} = \dfrac{1}{2 \pi i} \oint_ \gamma  \dfrac{0 \cdot dx}{x-z} = 0. \qed
+		\]
+		% )))
+
+		% === 2 === (((
+	\item \textit{Calcule el máximo de \(\cos \) en \([0, 2 \pi] \times [0, 2 \pi]\).}\\[2mm]
+		\textbf{Solución.} Como \(\cos\) es analítica, basta encontrar: \(\max \cos (\partial [0, 2\pi] ^2)\). Notamos que
+				\[
+					\begin{array}{rcl}
+						\cos (x+iy) &=& \dfrac{e^{i(x+iy)} +e^{-i(x+iy)}}{2} \\[2mm]
+						& = & \dfrac{e^{-y} (\cos x+ i \sin x) +e^y(\cos x-i \sin x)}{2} \\[2mm]
+						& = & \dfrac{\cos x (e^y+e^{-y}) + i\sin x(e^{-y} -e^y)}{2} \\[2mm]
+						& = & \cosh y \cdot \cos x - i\sinh y \cdot \sin x \\[2mm]
+					\end{array}
+				\]
+				Entonces tenemos que
+				\[
+					\begin{array}{rcl}
+						\big| \cos (x+iy) \big| ^2 & = & \cos ^2x \cosh^2y+ \sin ^2x \sinh^2y \\[2mm]
+						& = & \cos ^2x \cosh ^2y+(1- \cos ^2 x) \sinh ^2y \\[2mm]
+						& = & \sinh ^2y + \cos ^2x(\cosh ^2y- \sinh ^2y) \\[2mm]
+						& = & \cos ^2x+ \sinh ^2y.
+					\end{array}
+				\]
+				Como \(\sinh ^2y\) es creciente, se tiene que \(| \sinh y| \leqslant \sinh 2 \pi \). Además \(\big| \cos x \big| \leqslant 1 = \cos 0, \cos 2 \pi\). De modo que los \underline{extremos} de \(\cos\) se encuentran en \((0,2 \pi)\) y \((2 \pi ,2 \pi)\).
+				Finalmente, el valor máximo es
+				\[
+					\big| \cos z \big| \leqslant \cos (0+ 2 \pi i) = \sqrt{1+ \sinh ^2(2 \pi)} = \cosh 2 \pi . \hspace{5mm} \forall z \in [0, 2 \pi] \times [0, 2\pi ]. \qed
+				\]
+		% )))
+
+		% === 3 === (((
+	\item \textit{Muestre que \(f: \mathds{C} \longrightarrow \mathds{C}\)}
+		\[
+			f(z) = \dis\suma_{n=1}^{\infty} e^{-n } \sin nz
+		\]
+		\textit{es analítica en el abierto \(\mathds{R} \times (-1,1)\).} \\[2mm]
+		\textbf{Demostración.} Vemos que
+		\[
+			e^{-n} \sin nz  = e^{-n} \dfrac{e^{niz} - e^{-niz}}{2i} = \dfrac{1}{2i} \bigg(\dfrac{e^{iz}}{e}\bigg) ^n- \dfrac{1}{2i} \bigg(\dfrac{e^{-iz}}{e}\bigg) ^n.
+		\]
+		Entonces vemos que, \(\big| e^{iz} \big| = \big| e^{i(x+iy)} \big| = e^{-y}\). Como \(y \in (-1,1)\), entonces \(e^{-y}< e^1\).
+		\[
+			\left| \dfrac{e^{iz}}{e} \right| = \dfrac{e^{-y}}{e} < 1.
+		\]
+		teniéndose \(\left| \dis\suma_{n=1}^{\infty} \bigg(\dfrac{e^{iz}}{e}\bigg) ^n \right| \leqslant \dis\suma_{n=1}^{\infty} \left| \dfrac{e^{iz}}{e} \right| ^n = \dis\suma_{n= 1}^{\infty} (e^{-y}/e) ^n  \) una serie geométrica, y por tanto converge absolutamente por el \textsc{Teorema 3.1.3}.
+		De forma completamente análoga, tenemos que \(e^{y} < e^1\), y en consecuencia \(\dis\suma_{n=1}^{\infty} (e^{-iz} /e) ^n\) converge absolutamente.
+		Entonces \vspace{-5mm}
+		\[
+			\begin{array}{rcl}
+				f(z) & = & \dis\suma_{n=1}^{\infty} e^{-n} \sin nz \\[5mm]
+				& = & \dfrac{1}{2i} \dis\suma_{n= 1}^{\infty} \bigg(\dfrac{e^{iz}}{e}\bigg) ^n - \dfrac{1}{2i} \dis\suma_{n=1}^{\infty} \bigg(\dfrac{e^{-iz}}{e}\bigg) ^n \\[5mm]
+				& = & \dfrac{1}{2i} \cdot \dfrac{1}{1-e^{iz} /e} - \dfrac{1}{2i} \cdot \dfrac{1}{1- e^{-iz} /e} \\[5mm]
+				& = & \dfrac{1}{2i} \cdot \dfrac{1-e^{-iz} /e-(1-e^{iz} /e)}{(1-e^{iz} /e) (1-e^{-iz} /e)} \\[5mm]
+				& = & \dfrac{1}{2i} \dfrac{e^{iz} - e^{-iz}}{e(1-e^{iz} /e-e^{-iz} /e+1/e^2)} = \dfrac{\sin z}{e+1/e - 2 \cos z}.
+			\end{array}
+		\]
+		Notamos que ésta función es analítica.\\
+		\noindent\fbox{\parbox{\linewidth}{
+		Para probarlo, vemos lo siguiente.
+		\begin{equation}
+			\big| \cos (x+iy) \big| \leqslant \dfrac{\big| e^{i(x+iy)} \big| + \big| e^{-i(x+iy)} \big|}{2} = \dfrac{e^y+e^{-y}}{2}.
+			\label{eq:definicion_cos}
+		\end{equation}
+		Sea \(g:[0,1] \longrightarrow \mathds{R}\) por \(g(y) = e^y+e^{-y}\). Entonces \(g\,' (y) = e^{y} -e^{-y}\). Como \(\exp\) es creciente, entonces
+		\[
+			-y< 0 < y \;\implies\; e^{-y} < e^0< e^y.
+		\]
+		}}
+		\noindent\fbox{\parbox{\linewidth}{\vspace{2mm} 
+		Así, \(g\,' (y) >0\), y \(g\) es estrictamente creciente.
+		\[
+			g(y) < g(1) = e+1/e, \hspace{5mm} \forall y \in (0,1).
+		\]
+		Notar que \(h:[-1,1] \longrightarrow \mathds{R}\) por \(h(y) = e^y+e^{-y}\) es par. Así
+		\begin{equation}
+			h(y) < h(1) = e+1/e, \hspace{5mm} \forall y \in (-1,1).
+			\label{eq:def_h}
+		\end{equation}
+		Entonces, por (\ref{eq:definicion_cos}) y (\ref{eq:def_h}) tenemos
+		\[
+			2 \cdot \big| \cos z \big| \leqslant e^y+e^{-y} < e+1/e, \hspace{5mm} Imz \in (-1,1).
+		\]
+		De ésta forma
+		\[
+			f(z) = \dfrac{\sin z}{e+1/e-2 \cos z} \hspace{5mm} \mbox{es analítica en } Imz \in (-1,1). \qed
+		\]
+		}}
+		% )))
+
+		% === 4 === (((
+	\item \textit{Calcule \(a_0,a_3,a_5\) para \(\tan z  = \dis\suma_{n=0}^{\infty} a_nz^{n}\), alrededor de \(0\).} \\[-5mm]
+		\textbf{Solución.} Recordamos que \(\tan z = \sin z/ \cos z\). Supongamos que \(\tan z = \dis\suma_{n=0}^{\infty} a_nz^n\). \vspace{-5mm}
+		\[
+			\begin{array}{rcl}
+				\sin z & = & (\cos z) \cdot ( \tan z) \\[2mm]
+				\dis\suma_{n=0}^{\infty} c_nz^n& = & \bigg(\dis\suma_{n=0}^{\infty} b_nz^n \bigg) \bigg(\dis\suma_{n=0}^{\infty} a_nz^n\bigg)
+			\end{array}
+		\]
+		con \(c_n = \begin{cases}
+			(-1) ^{(n-1) /2} /n! ,& n \mbox{ impar},\\
+			0 ,& n \mbox{ par}.
+		\end{cases}\), y \(b_n = \begin{cases}
+			(-1) ^{n/2} /n! ,& n \mbox{ par},\\
+			0 ,& n \mbox{ impar}.
+		\end{cases}\). Entonces
+		\[
+			\hspace{-1.5cm} \begin{array}{rcl}
+				z+0- \dfrac{z^3}{3!} +0+ \dfrac{z^5}{5!}+ \dis\suma_{n=6}^{\infty} c_nz^n& = & \bigg(\dis\suma_{n=0}^{\infty} b_nz^n \bigg) \bigg(\dis\suma_{n=0}^{\infty} a_nz^n\bigg) \\[2mm]
+				& = & \dis\suma_{n=0}^{\infty} \bigg(\dis\suma_{k=0}^{n} a_kb_{n-k}\bigg) z^n \\[2mm]
+				& = & \hphantom{+}\big[a_0(1)\big]  \\[2mm]
+				&   & + \big[a_0(0) +a_1(1)\big] z \\[2mm]
+				&   & + \big[a_0(-1/2) +a_1(0) +a_2(1)\big] z^2 \\[2mm]
+				&   & + \big[a_0(0) +a_1(-1/2) +a_2(0) +a_3(1)\big] z^3 \\[2mm]
+				&   & + \big[a_0(1/4!) +a_1(0) +a_2(-1/2) +a_3(0) + a_4(1)\big] z^4 \\[2mm]
+				&   & + \big[a_0(0) +a_1(1/4!) +a_2(0) +a_3(-1/2) +a_4(0) +a_5(1)\big] z^5 \\[2mm]
+				&   & + \dis\suma_{n=6}^{\infty} \bigg(\dis\suma_{k=0}^{n} a_nb_{n-k}\bigg) z^n.
+			\end{array}
+		\]
+		% )))
+
+		% === 5 === (((
+	\item \textit{Sea \(f\) con un zero de multiplicidad \(k\) en \(z_0\). Deduzca que el residuo de \(f\,' /f\) en \(z_0\) es \(k\).}\\[2mm]
+		\textbf{Solución.} Si \(f\) tiene un cero de multiplicidad \(k\) en \(z_0\), entonces
+		\[
+			f(z) = (z-z_0) ^k \dis\suma_{n=0}^{\infty} a_n(z-z_0) ^n
+		\]
+		% )))
+
+		% === 6 === (((
+	\item \textit{Suponga que \(f\) tiene una singularidad aislada en \(z_0\). Muestre que es escencial si y sólo si hay suesiones \((z_n)\) y \((w_n)\) ambas convergentes a \(z_0\) y}
+		\[
+			f(z_n) \longrightarrow 0 \hspace{5mm} f(w_n) \longrightarrow \infty .
+		\]
+		\textbf{Demostración.} 
+		% )))
+
+\end{enumerate}
+
+
+\end{document}
